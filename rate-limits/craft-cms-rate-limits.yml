@@ -1,0 +1,39 @@
+---
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Craft CMS
+providerId: craft-cms
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - Rate Limiting
+  - GraphQL
+  - CMS
+description: >-
+  Craft CMS does not impose built-in rate limiting on its GraphQL API or
+  Element API endpoints by default. Rate limiting is implemented at the
+  infrastructure or plugin level. The official Rate Limit plugin for Craft CMS
+  provides IP-based request throttling with a default threshold of 4000
+  requests per minute per IP address, returning HTTP 429 when exceeded.
+  Self-hosted deployments can configure limits via server-level controls (nginx,
+  Apache) or through the Rate Limit plugin.
+sources:
+  - https://craftcms.com/docs/5.x/development/graphql.html
+  - https://plugins.craftcms.com/rate-limit
+headers:
+  retryAfter: Retry-After
+responseCodes:
+  throttled: 429
+limits:
+  - name: IP-Based Request Throttle (Rate Limit Plugin Default)
+    scope: ip
+    metric: requests_per_minute
+    limit: 4000
+    timeFrame: minute
+  - name: GraphQL Query Complexity
+    scope: key
+    metric: complexity_score
+    limit: -1
+    timeFrame: usage

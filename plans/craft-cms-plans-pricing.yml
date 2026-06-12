@@ -1,0 +1,159 @@
+---
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Craft CMS
+providerId: craft-cms
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - CMS
+  - Content Management
+  - GraphQL
+  - Headless
+description: >-
+  Craft CMS offers four editions: Solo (free forever, one user), Team ($279
+  per project, up to five users), Pro ($399 per project, unlimited users and
+  groups), and Enterprise (custom pricing with SAML SSO and premium support).
+  Team and Pro editions include one year of updates and are free when hosted on
+  Craft Cloud. All editions support the GraphQL API and Element API plugin.
+sources:
+  - https://craftcms.com/pricing
+plans:
+  - id: craft-cms-solo
+    name: Solo
+    type: free
+    description: >-
+      Free forever for self-hosted projects. Includes one user account,
+      unlimited content types, entries, pages, locales, asset management,
+      multi-site, search, live preview, image editor, content versioning,
+      scheduling, categories/tags, and customizable dashboard. Supports
+      GraphQL API.
+    entries:
+      - label: User Accounts
+        name: user_accounts
+        type: quota
+        metric: accounts
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+      - label: Self-Hosted License
+        name: self_hosted_license
+        type: boolean
+        metric: license
+        limit: 1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+  - id: craft-cms-team
+    name: Team
+    type: paid
+    description: >-
+      Per-project license for self-hosted deployments. Includes up to five
+      user accounts, one user group, all Solo features, developer support
+      from the Craft core team, and one year of updates (then $99/year).
+      Free when hosted on Craft Cloud.
+    entries:
+      - label: Self-Hosted License
+        name: self_hosted_license
+        type: quota
+        metric: license
+        limit: 1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '279'
+        userMultiplied: false
+      - label: Annual Updates
+        name: annual_updates
+        type: metered
+        metric: year
+        limit: 1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '99'
+        userMultiplied: false
+      - label: User Accounts
+        name: user_accounts
+        type: quota
+        metric: accounts
+        limit: 5
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+  - id: craft-cms-pro
+    name: Pro
+    type: paid
+    description: >-
+      Per-project license for self-hosted deployments with unlimited user
+      accounts and groups, branded control panel, branded communication,
+      and all Team features. Includes one year of updates (then $99/year).
+      Free when hosted on Craft Cloud.
+    entries:
+      - label: Self-Hosted License
+        name: self_hosted_license
+        type: quota
+        metric: license
+        limit: 1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '399'
+        userMultiplied: false
+      - label: Annual Updates
+        name: annual_updates
+        type: metered
+        metric: year
+        limit: 1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '99'
+        userMultiplied: false
+      - label: User Accounts
+        name: user_accounts
+        type: quota
+        metric: accounts
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0'
+        userMultiplied: false
+  - id: craft-cms-enterprise
+    name: Enterprise
+    type: enterprise
+    description: >-
+      Custom pricing for enterprise deployments. Includes everything in Pro
+      plus SAML SSO, custom licensing agreements, procurement support, and
+      dedicated premium support from the Craft team.
+    entries:
+      - label: Custom License
+        name: custom_license
+        type: boolean
+        metric: license
+        limit: 1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'custom'
+        userMultiplied: false
+      - label: SAML SSO
+        name: saml_sso
+        type: boolean
+        metric: feature
+        limit: 1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'included'
+        userMultiplied: false

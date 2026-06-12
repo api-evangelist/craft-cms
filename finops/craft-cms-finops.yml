@@ -1,0 +1,68 @@
+---
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Craft CMS
+providerId: craft-cms
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - CMS
+  - Content Management
+description: >-
+  FOCUS-aligned FinOps for Craft CMS covering self-hosted and Craft Cloud
+  deployments. Core CMS licensing is a one-time per-project fee (Solo: free,
+  Team: $279, Pro: $399) with optional annual update renewals at $99/year.
+  Enterprise licensing is custom. Craft Cloud hosting adds variable compute
+  and storage costs. Total cost of ownership includes infrastructure, plugin
+  licenses, and annual update fees.
+sources:
+  - https://craftcms.com/pricing
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Craft CMS
+serviceCategory: Developer Tools
+billingModel:
+  pricingCategory: Perpetual License with Optional Subscription
+  billingFrequency: Monthly
+  billingCurrency: USD
+focusColumns:
+  ServiceName: Craft CMS
+  ServiceCategory: Developer Tools
+  ProviderName: Craft CMS
+  PublisherName: Craft CMS
+  BillingCurrency: USD
+meters:
+  - name: CMS License
+    unit: project
+    aggregation: sum
+  - name: Annual Update Renewal
+    unit: project-year
+    aggregation: sum
+  - name: Craft Cloud Hosting
+    unit: GB-month
+    aggregation: sum
+  - name: Plugin Licenses
+    unit: plugin
+    aggregation: sum
+principles:
+  - name: Visibility
+    description: Track Craft CMS license costs per project and annual renewal fees monthly.
+  - name: Optimization
+    description: >-
+      Evaluate edition selection (Solo vs Team vs Pro) against actual user
+      account needs; right-size to avoid over-licensing. Consolidate plugin
+      purchases and review annual update renewals for active vs dormant
+      projects.
+  - name: Accountability
+    description: >-
+      Attribute Craft CMS licensing costs to individual projects or business
+      units. Separate self-hosted infrastructure costs from CMS license fees
+      for accurate TCO reporting.

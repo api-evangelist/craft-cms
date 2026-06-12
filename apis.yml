@@ -1,0 +1,90 @@
+---
+aid: craft-cms
+name: Craft CMS
+description: >-
+  Craft CMS is a flexible, self-hosted PHP content management system built on
+  Yii 2, designed for creating bespoke digital experiences. It features an
+  auto-generated GraphQL API for headless implementations, enabling queries
+  against entries, assets, categories, and custom fields via token-based
+  authentication. The Element API plugin extends Craft with configurable JSON
+  REST endpoints for any element type, using URL pattern routing and the Fractal
+  transformation library. Craft supports multi-site architecture, unlimited
+  content types, and is deployable on-premise or via Craft Cloud, the official
+  managed hosting platform.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - CMS
+  - Content Management
+  - GraphQL
+  - REST
+  - Headless
+  - PHP
+url: https://raw.githubusercontent.com/api-evangelist/craft-cms/refs/heads/main/apis.yml
+created: '2026-06-12'
+modified: '2026-06-12'
+specificationVersion: '0.19'
+apis:
+  - aid: craft-cms:graphql-api
+    name: Craft CMS GraphQL API
+    description: >-
+      Auto-generated GraphQL API providing schema-based access to Craft CMS
+      content including entries, assets, categories, tags, and custom fields.
+      Access is controlled via bearer token authentication tied to named schemas
+      configured in the control panel, with a public schema available for
+      unauthenticated access when enabled.
+    humanURL: https://craftcms.com/docs/5.x/development/graphql.html
+    baseURL: https://example.craftcms.com/actions/graphql/api
+    tags:
+      - GraphQL
+      - Content
+      - Headless
+      - CMS
+    properties:
+      - type: Documentation
+        url: https://craftcms.com/docs/5.x/development/graphql.html
+  - aid: craft-cms:element-api
+    name: Craft CMS Element API
+    description: >-
+      Official Craft CMS plugin that creates configurable JSON REST endpoints
+      for any element type (entries, assets, categories, users). Endpoints are
+      defined via a PHP configuration file mapping URL patterns to element
+      queries with optional data transformation, pagination, and caching.
+      Supports JSON Feed V1.1 and JSON:API serialization formats.
+    humanURL: https://github.com/craftcms/element-api
+    baseURL: https://example.craftcms.com
+    tags:
+      - REST
+      - JSON
+      - Elements
+      - Plugin
+      - CMS
+    properties:
+      - type: Documentation
+        url: https://github.com/craftcms/element-api
+common:
+  - type: Website
+    url: https://craftcms.com
+  - type: Documentation
+    url: https://craftcms.com/docs/5.x/
+  - type: GitHubOrganization
+    url: https://github.com/craftcms
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/craftcms
+  - type: X
+    url: https://twitter.com/craftcms
+  - type: Blog
+    url: https://craftcms.com/blog
+  - type: Pricing
+    url: https://craftcms.com/pricing
+  - type: StatusPage
+    url: https://status.craftcms.com/
+  - type: Plans
+    url: plans/craft-cms-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/craft-cms-rate-limits.yml
+  - type: FinOps
+    url: finops/craft-cms-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
