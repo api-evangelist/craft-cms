@@ -75,6 +75,8 @@ common:
     url: https://twitter.com/craftcms
   - type: Blog
     url: https://craftcms.com/blog
+  - type: BlogFeed
+    url: https://craftcms.com/blog.rss
   - type: Pricing
     url: https://craftcms.com/pricing
   - type: StatusPage
@@ -85,6 +87,10 @@ common:
     url: rate-limits/craft-cms-rate-limits.yml
   - type: FinOps
     url: finops/craft-cms-finops.yml
+  - type: Blogs
+    url: blogs/blogs.json
+  - type: JSONLDContext
+    url: json-ld/craft-cms-context.jsonld
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

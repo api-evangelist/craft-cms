@@ -1,0 +1,68 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "craft": "https://craftcms.com/ns#",
+    "SoftwareApplication": "SoftwareApplication",
+    "WebAPI": "WebAPI",
+    "name": "name",
+    "description": "description",
+    "url": "url",
+    "documentation": "documentation",
+    "provider": "provider",
+    "CMS": "craft:CMS",
+    "Entry": "craft:Entry",
+    "Asset": "craft:Asset",
+    "Category": "craft:Category",
+    "Tag": "craft:Tag",
+    "User": "craft:User",
+    "Section": "craft:Section",
+    "Field": "craft:Field",
+    "Matrix": "craft:Matrix",
+    "Site": "craft:Site",
+    "Volume": "craft:Volume",
+    "GraphQLSchema": "craft:GraphQLSchema",
+    "ElementQuery": "craft:ElementQuery",
+    "token": "craft:token",
+    "schema": "craft:schema",
+    "endpoint": "craft:endpoint",
+    "element": "craft:element"
+  },
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://craftcms.com",
+      "name": "Craft CMS",
+      "description": "Flexible, self-hosted PHP content management system with auto-generated GraphQL API and configurable REST endpoints via the Element API plugin.",
+      "url": "https://craftcms.com",
+      "applicationCategory": "ContentManagementSystem",
+      "operatingSystem": "Linux, macOS, Windows",
+      "programmingLanguage": "PHP"
+    },
+    {
+      "@type": "WebAPI",
+      "@id": "https://craftcms.com/docs/5.x/development/graphql.html",
+      "name": "Craft CMS GraphQL API",
+      "description": "Auto-generated GraphQL API providing schema-based access to Craft CMS content including entries, assets, categories, tags, and custom fields.",
+      "url": "https://craftcms.com/docs/5.x/development/graphql.html",
+      "documentation": "https://craftcms.com/docs/5.x/development/graphql.html",
+      "provider": {
+        "@type": "Organization",
+        "name": "Craft CMS",
+        "url": "https://craftcms.com"
+      }
+    },
+    {
+      "@type": "WebAPI",
+      "@id": "https://github.com/craftcms/element-api",
+      "name": "Craft CMS Element API",
+      "description": "Official Craft CMS plugin that creates configurable JSON REST endpoints for any element type (entries, assets, categories, users).",
+      "url": "https://github.com/craftcms/element-api",
+      "documentation": "https://github.com/craftcms/element-api",
+      "provider": {
+        "@type": "Organization",
+        "name": "Craft CMS",
+        "url": "https://craftcms.com"
+      }
+    }
+  ]
+}
