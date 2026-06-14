@@ -1,0 +1,909 @@
+"""
+Craft CMS GraphQL API Schema
+Auto-generated schema built into Craft CMS since v3.3.
+Source: https://github.com/craftcms/cms/tree/main/src/gql
+Docs:   https://craftcms.com/docs/5.x/development/graphql.html
+"""
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+# ---------------------------------------------------------------------------
+# Scalar types
+# ---------------------------------------------------------------------------
+
+scalar DateTime
+scalar QueryArgument
+
+# ---------------------------------------------------------------------------
+# Base interfaces
+# ---------------------------------------------------------------------------
+
+"""
+This is the interface implemented by all elements.
+"""
+interface ElementInterface {
+  id: ID
+  uid: String
+  title: String
+  slug: String
+  uri: String
+  enabled: Boolean!
+  archived: Boolean!
+  siteHandle: String
+  siteId: Int
+  siteSettingsId: ID
+  language: String
+  searchScore: Int
+  trashed: Boolean
+  status: String
+  dateCreated: DateTime
+  dateUpdated: DateTime
+  isDraft: Boolean
+  isRevision: Boolean
+  revisionId: Int
+  revisionNotes: String
+  draftId: Int
+  isUnpublishedDraft: Boolean
+  draftName: String
+  draftNotes: String
+}
+
+"""
+This is the interface implemented by all structure elements.
+"""
+interface StructureInterface implements ElementInterface {
+  id: ID
+  uid: String
+  title: String
+  slug: String
+  uri: String
+  enabled: Boolean!
+  archived: Boolean!
+  siteHandle: String
+  siteId: Int
+  siteSettingsId: ID
+  language: String
+  searchScore: Int
+  trashed: Boolean
+  status: String
+  dateCreated: DateTime
+  dateUpdated: DateTime
+  isDraft: Boolean
+  isRevision: Boolean
+  revisionId: Int
+  revisionNotes: String
+  draftId: Int
+  isUnpublishedDraft: Boolean
+  draftName: String
+  draftNotes: String
+  lft: Int
+  rgt: Int
+  level: Int
+  root: Int
+  structureId: Int
+}
+
+# ---------------------------------------------------------------------------
+# Element interfaces
+# ---------------------------------------------------------------------------
+
+"""
+This is the interface implemented by all entries.
+"""
+interface EntryInterface implements StructureInterface & ElementInterface {
+  id: ID
+  uid: String
+  title: String
+  slug: String
+  uri: String
+  enabled: Boolean!
+  archived: Boolean!
+  siteHandle: String
+  siteId: Int
+  siteSettingsId: ID
+  language: String
+  searchScore: Int
+  trashed: Boolean
+  status: String
+  dateCreated: DateTime
+  dateUpdated: DateTime
+  isDraft: Boolean
+  isRevision: Boolean
+  revisionId: Int
+  revisionNotes: String
+  draftId: Int
+  isUnpublishedDraft: Boolean
+  draftName: String
+  draftNotes: String
+  lft: Int
+  rgt: Int
+  level: Int
+  root: Int
+  structureId: Int
+  canonicalId: Int
+  canonicalUid: String
+  sectionId: Int
+  sectionHandle: String
+  fieldId: Int
+  fieldHandle: String
+  ownerId: Int
+  sortOrder: Int
+  typeId: Int!
+  typeHandle: String!
+  postDate: DateTime
+  expiryDate: DateTime
+  children: [EntryInterface!]!
+  descendants: [EntryInterface!]!
+  parent: EntryInterface
+  ancestors: [EntryInterface!]!
+  url: String
+  localized: [EntryInterface!]!
+  prev: EntryInterface
+  next: EntryInterface
+}
+
+"""
+This is the interface implemented by all assets.
+"""
+interface AssetInterface implements ElementInterface {
+  id: ID
+  uid: String
+  title: String
+  slug: String
+  uri: String
+  enabled: Boolean!
+  archived: Boolean!
+  siteHandle: String
+  siteId: Int
+  siteSettingsId: ID
+  language: String
+  searchScore: Int
+  trashed: Boolean
+  status: String
+  dateCreated: DateTime
+  dateUpdated: DateTime
+  isDraft: Boolean
+  isRevision: Boolean
+  revisionId: Int
+  revisionNotes: String
+  draftId: Int
+  isUnpublishedDraft: Boolean
+  draftName: String
+  draftNotes: String
+  alt: String
+  volumeId: Int
+  folderId: Int!
+  filename: String!
+  extension: String!
+  hasFocalPoint: Boolean!
+  focalPoint: [Float]
+  kind: String!
+  size: String
+  height: Int
+  width: Int
+  img: String
+  srcset(sizes: [String!]!): String
+  url: String
+  mimeType: String
+  format: String
+  path: String!
+  dateModified: DateTime
+  prev: AssetInterface
+  next: AssetInterface
+  uploaderId: Int
+  uploader: UserInterface
+}
+
+"""
+This is the interface implemented by all categories.
+"""
+interface CategoryInterface implements StructureInterface & ElementInterface {
+  id: ID
+  uid: String
+  title: String
+  slug: String
+  uri: String
+  enabled: Boolean!
+  archived: Boolean!
+  siteHandle: String
+  siteId: Int
+  siteSettingsId: ID
+  language: String
+  searchScore: Int
+  trashed: Boolean
+  status: String
+  dateCreated: DateTime
+  dateUpdated: DateTime
+  isDraft: Boolean
+  isRevision: Boolean
+  revisionId: Int
+  revisionNotes: String
+  draftId: Int
+  isUnpublishedDraft: Boolean
+  draftName: String
+  draftNotes: String
+  lft: Int
+  rgt: Int
+  level: Int
+  root: Int
+  structureId: Int
+  groupId: Int
+  groupHandle: String
+  children: [CategoryInterface!]!
+  descendants: [CategoryInterface!]!
+  ancestors: [CategoryInterface!]!
+  parent: CategoryInterface
+  url: String
+  localized: [CategoryInterface!]!
+  prev: CategoryInterface
+  next: CategoryInterface
+}
+
+"""
+This is the interface implemented by all tags.
+"""
+interface TagInterface implements ElementInterface {
+  id: ID
+  uid: String
+  title: String
+  slug: String
+  uri: String
+  enabled: Boolean!
+  archived: Boolean!
+  siteHandle: String
+  siteId: Int
+  siteSettingsId: ID
+  language: String
+  searchScore: Int
+  trashed: Boolean
+  status: String
+  dateCreated: DateTime
+  dateUpdated: DateTime
+  isDraft: Boolean
+  isRevision: Boolean
+  revisionId: Int
+  revisionNotes: String
+  draftId: Int
+  isUnpublishedDraft: Boolean
+  draftName: String
+  draftNotes: String
+  groupId: Int
+  groupHandle: String
+}
+
+"""
+This is the interface implemented by all users.
+"""
+interface UserInterface implements ElementInterface {
+  id: ID
+  uid: String
+  title: String
+  slug: String
+  uri: String
+  enabled: Boolean!
+  archived: Boolean!
+  siteHandle: String
+  siteId: Int
+  siteSettingsId: ID
+  language: String
+  searchScore: Int
+  trashed: Boolean
+  status: String
+  dateCreated: DateTime
+  dateUpdated: DateTime
+  isDraft: Boolean
+  isRevision: Boolean
+  revisionId: Int
+  revisionNotes: String
+  draftId: Int
+  isUnpublishedDraft: Boolean
+  draftName: String
+  draftNotes: String
+  friendlyName: String
+  fullName: String
+  name: String
+  preferences: String
+  preferredLanguage: String
+  username: String
+  firstName: String
+  lastName: String
+  email: String
+  affiliatedSiteHandle: String
+  affiliatedSiteId: Int
+  addresses: [AddressInterface]
+  photo: AssetInterface
+}
+
+"""
+This is the interface implemented by all global sets.
+"""
+interface GlobalSetInterface implements ElementInterface {
+  id: ID
+  uid: String
+  title: String
+  slug: String
+  uri: String
+  enabled: Boolean!
+  archived: Boolean!
+  siteHandle: String
+  siteId: Int
+  siteSettingsId: ID
+  language: String
+  searchScore: Int
+  trashed: Boolean
+  status: String
+  dateCreated: DateTime
+  dateUpdated: DateTime
+  isDraft: Boolean
+  isRevision: Boolean
+  revisionId: Int
+  revisionNotes: String
+  draftId: Int
+  isUnpublishedDraft: Boolean
+  draftName: String
+  draftNotes: String
+  name: String
+  handle: String
+}
+
+"""
+This is the interface implemented by all addresses.
+"""
+interface AddressInterface implements ElementInterface {
+  id: ID
+  uid: String
+  title: String
+  slug: String
+  uri: String
+  enabled: Boolean!
+  archived: Boolean!
+  siteHandle: String
+  siteId: Int
+  siteSettingsId: ID
+  language: String
+  searchScore: Int
+  trashed: Boolean
+  status: String
+  dateCreated: DateTime
+  dateUpdated: DateTime
+  isDraft: Boolean
+  isRevision: Boolean
+  revisionId: Int
+  revisionNotes: String
+  draftId: Int
+  isUnpublishedDraft: Boolean
+  draftName: String
+  draftNotes: String
+  fullName: String
+  firstName: String
+  lastName: String
+  countryCode: String
+  administrativeArea: String
+  locality: String
+  dependentLocality: String
+  postalCode: String
+  sortingCode: String
+  addressLine1: String
+  addressLine2: String
+  addressLine3: String
+  organization: String
+  organizationTaxId: String
+  latitude: String
+  longitude: String
+}
+
+"""
+This is the interface implemented by all content block elements.
+"""
+interface ContentBlockInterface implements ElementInterface {
+  id: ID
+  uid: String
+  title: String
+  slug: String
+  uri: String
+  enabled: Boolean!
+  archived: Boolean!
+  siteHandle: String
+  siteId: Int
+  siteSettingsId: ID
+  language: String
+  searchScore: Int
+  trashed: Boolean
+  status: String
+  dateCreated: DateTime
+  dateUpdated: DateTime
+  isDraft: Boolean
+  isRevision: Boolean
+  revisionId: Int
+  revisionNotes: String
+  draftId: Int
+  isUnpublishedDraft: Boolean
+  draftName: String
+  draftNotes: String
+  canonicalId: Int
+  canonicalUid: String
+  fieldId: Int
+  fieldHandle: String
+  ownerId: Int
+  localized: [ContentBlockInterface!]!
+}
+
+# ---------------------------------------------------------------------------
+# Query type
+# ---------------------------------------------------------------------------
+
+"""
+Root query type. Fields are dynamically registered at runtime based on the
+active GraphQL schema and the sections/volumes/groups defined in the CMS.
+"""
+type Query {
+  """This query is used to query for entries."""
+  entries(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    unique: Boolean
+    preferSites: [QueryArgument]
+    enabledForSite: [QueryArgument]
+    title: [String]
+    slug: [String]
+    uri: [String]
+    search: String
+    relatedTo: [QueryArgument]
+    relatedToAssets: [QueryArgument]
+    relatedToEntries: [QueryArgument]
+    relatedToUsers: [QueryArgument]
+    relatedToCategories: [QueryArgument]
+    relatedToTags: [QueryArgument]
+    relatedToAll: [QueryArgument]
+    ref: [String]
+    fixedOrder: Boolean
+    inReverse: Boolean
+    dateCreated: [String]
+    dateUpdated: [String]
+    offset: Int
+    limit: Int
+    orderBy: String
+    sectionId: [QueryArgument]
+    section: [String]
+    typeId: [QueryArgument]
+    type: [String]
+    authorId: [QueryArgument]
+    authorGroup: [String]
+    authorGroupId: [QueryArgument]
+    postDate: [String]
+    before: String
+    after: String
+    expiryDate: [String]
+    level: Int
+    hasDescendants: Boolean
+    ancestorOf: Int
+    ancestorDist: Int
+    descendantOf: Int
+    descendantDist: Int
+    leaves: Boolean
+    nextSiblingOf: Int
+    prevSiblingOf: Int
+    positionedAfter: Int
+    positionedBefore: Int
+    draftId: Int
+    draftOf: QueryArgument
+    drafts: Boolean
+    revisions: Boolean
+    provisionalDrafts: Boolean
+    preferredSitesOnly: Boolean
+    withStructure: Boolean
+    structureId: Int
+  ): [EntryInterface]
+
+  """This query is used to return the number of entries."""
+  entryCount(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    search: String
+    section: [String]
+    sectionId: [QueryArgument]
+    type: [String]
+    typeId: [QueryArgument]
+    authorId: [QueryArgument]
+    postDate: [String]
+    before: String
+    after: String
+    expiryDate: [String]
+  ): Int!
+
+  """This query is used to query for a single entry."""
+  entry(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    unique: Boolean
+    title: [String]
+    slug: [String]
+    uri: [String]
+    search: String
+    ref: [String]
+    fixedOrder: Boolean
+    inReverse: Boolean
+    dateCreated: [String]
+    dateUpdated: [String]
+    orderBy: String
+    sectionId: [QueryArgument]
+    section: [String]
+    typeId: [QueryArgument]
+    type: [String]
+    authorId: [QueryArgument]
+    postDate: [String]
+    before: String
+    after: String
+    expiryDate: [String]
+    level: Int
+    draftId: Int
+    draftOf: QueryArgument
+    drafts: Boolean
+    revisions: Boolean
+  ): EntryInterface
+
+  """This query is used to query for assets."""
+  assets(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    unique: Boolean
+    title: [String]
+    slug: [String]
+    uri: [String]
+    search: String
+    relatedTo: [QueryArgument]
+    ref: [String]
+    fixedOrder: Boolean
+    inReverse: Boolean
+    dateCreated: [String]
+    dateUpdated: [String]
+    offset: Int
+    limit: Int
+    orderBy: String
+    volume: [String]
+    volumeId: [QueryArgument]
+    folderId: [QueryArgument]
+    filename: [String]
+    kind: [String]
+    width: [QueryArgument]
+    height: [QueryArgument]
+    size: [QueryArgument]
+    dateModified: String
+    includeSubfolders: Boolean
+    withTransforms: [String]
+    uploader: QueryArgument
+    uploaderId: [QueryArgument]
+  ): [AssetInterface]
+
+  """This query is used to return the number of assets."""
+  assetCount(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    search: String
+    volume: [String]
+    volumeId: [QueryArgument]
+    kind: [String]
+  ): Int!
+
+  """This query is used to query for a single asset."""
+  asset(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    title: [String]
+    search: String
+    volume: [String]
+    volumeId: [QueryArgument]
+    filename: [String]
+    kind: [String]
+  ): AssetInterface
+
+  """This query is used to query for categories."""
+  categories(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    unique: Boolean
+    title: [String]
+    slug: [String]
+    uri: [String]
+    search: String
+    relatedTo: [QueryArgument]
+    ref: [String]
+    fixedOrder: Boolean
+    inReverse: Boolean
+    dateCreated: [String]
+    dateUpdated: [String]
+    offset: Int
+    limit: Int
+    orderBy: String
+    group: [String]
+    groupId: [QueryArgument]
+    level: Int
+    hasDescendants: Boolean
+    ancestorOf: Int
+    descendantOf: Int
+    leaves: Boolean
+    withStructure: Boolean
+    structureId: Int
+  ): [CategoryInterface]
+
+  """This query is used to return the number of categories."""
+  categoryCount(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    search: String
+    group: [String]
+    groupId: [QueryArgument]
+  ): Int!
+
+  """This query is used to query for a single category."""
+  category(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    title: [String]
+    slug: [String]
+    uri: [String]
+    search: String
+    group: [String]
+    groupId: [QueryArgument]
+  ): CategoryInterface
+
+  """This query is used to query for tags."""
+  tags(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    unique: Boolean
+    title: [String]
+    slug: [String]
+    search: String
+    relatedTo: [QueryArgument]
+    ref: [String]
+    fixedOrder: Boolean
+    inReverse: Boolean
+    dateCreated: [String]
+    dateUpdated: [String]
+    offset: Int
+    limit: Int
+    orderBy: String
+    group: [String]
+    groupId: [QueryArgument]
+  ): [TagInterface]
+
+  """This query is used to return the number of tags."""
+  tagCount(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    search: String
+    group: [String]
+    groupId: [QueryArgument]
+  ): Int!
+
+  """This query is used to query for a single tag."""
+  tag(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    title: [String]
+    slug: [String]
+    search: String
+    group: [String]
+    groupId: [QueryArgument]
+  ): TagInterface
+
+  """This query is used to query for users."""
+  users(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    unique: Boolean
+    title: [String]
+    search: String
+    relatedTo: [QueryArgument]
+    ref: [String]
+    fixedOrder: Boolean
+    inReverse: Boolean
+    dateCreated: [String]
+    dateUpdated: [String]
+    offset: Int
+    limit: Int
+    orderBy: String
+    email: [String]
+    username: [String]
+    fullName: [String]
+    firstName: [String]
+    lastName: [String]
+    hasPhoto: Boolean
+    groupId: [QueryArgument]
+    group: [QueryArgument]
+    authorOf: [QueryArgument]
+    affiliatedSite: [QueryArgument]
+  ): [UserInterface]
+
+  """This query is used to query for a single user."""
+  user(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    email: [String]
+    username: [String]
+    fullName: [String]
+    firstName: [String]
+    lastName: [String]
+  ): UserInterface
+
+  """This query is used to query for global sets."""
+  globalSets(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    unique: Boolean
+    search: String
+    relatedTo: [QueryArgument]
+    ref: [String]
+    fixedOrder: Boolean
+    inReverse: Boolean
+    dateCreated: [String]
+    dateUpdated: [String]
+    offset: Int
+    limit: Int
+    orderBy: String
+    handle: [String]
+  ): [GlobalSetInterface]
+
+  """This query is used to query for a single global set."""
+  globalSet(
+    id: [QueryArgument]
+    uid: [String]
+    status: [String]
+    site: [String]
+    siteId: [QueryArgument]
+    handle: [String]
+  ): GlobalSetInterface
+
+  """This query is used to query for addresses."""
+  addresses(
+    id: [QueryArgument]
+    uid: [String]
+    ownerId: [QueryArgument]
+    countryCode: [String]
+    administrativeArea: [String]
+    offset: Int
+    limit: Int
+    orderBy: String
+  ): [AddressInterface]
+
+  """This query is used to return the number of addresses."""
+  addressCount(
+    id: [QueryArgument]
+    uid: [String]
+    ownerId: [QueryArgument]
+    countryCode: [String]
+  ): Int!
+
+  """This query is used to query for a single address."""
+  address(
+    id: [QueryArgument]
+    uid: [String]
+    ownerId: [QueryArgument]
+    countryCode: [String]
+  ): AddressInterface
+
+  """Used to ping the endpoint and confirm the API is reachable."""
+  ping: String
+}
+
+# ---------------------------------------------------------------------------
+# Mutation type
+# ---------------------------------------------------------------------------
+
+"""
+Root mutation type. Save/delete mutations are dynamically registered per
+section, entry type, volume, and category/tag group at runtime.
+"""
+type Mutation {
+  """Delete an entry."""
+  deleteEntry(id: Int!): Boolean
+
+  """Create a draft for an entry and return the draft ID."""
+  createDraft(
+    id: Int!
+    name: String
+    notes: String
+    provisional: Boolean
+    creatorId: Int
+  ): Int
+
+  """Publish a draft for the entry and return the entry ID."""
+  publishDraft(id: Int!, provisional: Boolean): Int
+
+  """Delete an asset."""
+  deleteAsset(id: Int!): Boolean
+
+  """Used to ping the endpoint and confirm the API is reachable."""
+  ping: String
+}
+
+# ---------------------------------------------------------------------------
+# Directives
+# ---------------------------------------------------------------------------
+
+"""Transform an image asset on-the-fly."""
+directive @transform(
+  handle: String
+  width: Int
+  height: Int
+  mode: String
+  position: String
+  interlace: String
+  quality: Int
+  format: String
+  immediately: Boolean
+) on FIELD
+
+"""Parse ref tags in the field value."""
+directive @parseRefs on FIELD
+
+"""Format a DateTime value."""
+directive @formatDateTime(
+  format: String
+  timezone: String
+  locale: String
+) on FIELD
+
+"""Render a Markdown string."""
+directive @markdown(flavor: String) on FIELD
+
+"""Strip HTML tags from a string field."""
+directive @stripTags(allowed: [String]) on FIELD
+
+"""Trim whitespace from a string field."""
+directive @trim on FIELD
+
+"""Format a Money value."""
+directive @money(
+  format: String
+  locale: String
+) on FIELD
