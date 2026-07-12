@@ -60,6 +60,10 @@ apis:
   - type: Documentation
     url: https://github.com/craftcms/element-api
 common:
+- type: VulnerabilityDisclosure
+  url: security/craft-cms-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/craft-cms-domain-security.yml
 - type: Website
   url: https://craftcms.com
 - type: Documentation
