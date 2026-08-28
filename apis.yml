@@ -9,6 +9,17 @@ description: Craft CMS is a flexible, self-hosted PHP content management system 
   architecture, unlimited content types, and is deployable on-premise or via Craft
   Cloud, the official managed hosting platform.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: unknown
