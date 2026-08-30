@@ -111,8 +111,6 @@ common:
   url: rate-limits/craft-cms-rate-limits.yml
 - type: FinOps
   url: finops/craft-cms-finops.yml
-- type: Blog
-  url: blogs/blogs.json
 - type: JSONLDContext
   url: json-ld/craft-cms-context.jsonld
 maintainers:
