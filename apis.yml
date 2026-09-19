@@ -77,6 +77,12 @@ apis:
   - REST
   - JSON
   - Elements
+  - Plugins
+  - CMS
+  tags_raw:
+  - REST
+  - JSON
+  - Elements
   - Plugin
   - CMS
   properties:
