@@ -162,3 +162,55 @@ plans:
         unit: 1
         price: 'included'
         userMultiplied: false
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  units:
+  - feature
+  - object
+  - period
+  - seat
+  plans:
+  - name: Solo
+    access: free
+    model: free
+    model_how: derived
+    units:
+    - object
+    - seat
+    periods:
+    - month
+    - per-use
+  - name: Team
+    access: paid
+    model: free
+    model_how: derived
+    units:
+    - object
+    - period
+    - seat
+    periods:
+    - month
+    - per-use
+  - name: Pro
+    access: paid
+    model: free
+    model_how: derived
+    units:
+    - object
+    - period
+    - seat
+    periods:
+    - month
+    - per-use
+  - name: Enterprise
+    access: enterprise
+    model: free
+    model_how: derived
+    units:
+    - feature
+    - seat
+    periods:
+    - per-use
