@@ -1,4 +1,4 @@
-# Craft CMS (craft-cms)
+# Craft CMS
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,52 +64,120 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Craft CMS is a flexible, self-hosted PHP content management system built on Yii 2, designed for creating bespoke digital experiences. It features an auto-generated GraphQL API for headless implementations and an Element API plugin providing configurable JSON REST endpoints for any element type including entries, assets, categories, and custom fields.
+Craft CMS is a flexible, self-hosted PHP content management system built on Yii 2, designed for creating bespoke digital experiences. It features an auto-generated GraphQL API for headless implementations, enabling queries against entries, assets, categories, and custom fields via token-based authentication. The Element API plugin extends Craft with configurable JSON REST endpoints for any element type, using URL pattern routing and the Fractal transformation library. Craft supports multi-site architecture, unlimited content types, and is deployable on-premise or via Craft Cloud, the official managed hosting platform.
 
-APIs.json: [https://raw.githubusercontent.com/api-evangelist/craft-cms/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/craft-cms/refs/heads/main/apis.yml)
+**Areas:** CMS · Content Management · GraphQL · REST · Headless · PHP · Headless CMS
 
-Naftiko: [https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=craft-cms-api-evangelist&utm_content=repo](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=craft-cms-api-evangelist&utm_content=repo)
+## Craft CMS on APIs.io
 
-## Tags
+Everything profiled for Craft CMS is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/craft-cms/](https://apis.io/providers/craft-cms/)** — or go straight to one of the APIs or properties below.
 
-- CMS
-- Content Management
-- GraphQL
-- REST
-- Headless
-- PHP
+### APIs (2)
 
-## APIs
+- [Craft CMS GraphQL API](https://apis.io/apis/craft-cms/graphql-api/) — Auto-generated GraphQL API providing schema-based access to Craft CMS content including entries, assets, categories, tags, and custom fields. Access is…
+- [Craft CMS Element API](https://apis.io/apis/craft-cms/element-api/) — Official Craft CMS plugin that creates configurable JSON REST endpoints for any element type (entries, assets, categories, users). Endpoints are defined via…
 
-| Name | Description | Docs |
-|------|-------------|------|
-| Craft CMS GraphQL API | Auto-generated GraphQL API for querying content via schema-based bearer token access | [Docs](https://craftcms.com/docs/5.x/development/graphql.html) |
-| Craft CMS Element API | Official plugin providing configurable JSON REST endpoints for any element type | [Docs](https://github.com/craftcms/element-api) |
+### Published properties
 
-## Plans / Rate Limits / FinOps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- [Plans & Pricing](plans/craft-cms-plans-pricing.yml) — Solo (free), Team ($279/project), Pro ($399/project), Enterprise (custom)
-- [Rate Limits](rate-limits/craft-cms-rate-limits.yml) — No built-in limits; Rate Limit plugin default: 4000 req/min per IP; HTTP 429 on throttle
-- [FinOps](finops/craft-cms-finops.yml) — Perpetual per-project license with optional $99/year update renewals
+#### GraphQL (1)
 
-## Timestamps
+GraphQL schemas.
 
-- Created: 2026-06-12
-- Modified: 2026-06-12
+- [Craft CMS GraphQL API](https://apis.io/graphqls/craft-cms/craft-cms-graphql/)
 
-## Common Properties
+#### JSON-LD (1)
 
-| Type | URL |
-|------|-----|
-| Website | https://craftcms.com |
-| Documentation | https://craftcms.com/docs/5.x/ |
-| GitHub Organization | https://github.com/craftcms |
-| LinkedIn | https://www.linkedin.com/company/craftcms |
-| X / Twitter | https://twitter.com/craftcms |
-| Blog | https://craftcms.com/blog |
-| Pricing | https://craftcms.com/pricing |
-| Status Page | https://status.craftcms.com/ |
+Linked-data contexts for the provider's vocabulary.
 
-## Maintainers
+- [Craft Cms Context](https://apis.io/jsonld/craft-cms/craft-cms-context/)
 
-- Kin Lane / kin@apievangelist.com
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Craft Cms Domain Security](https://apis.io/security/craft-cms/craft-cms-domain-security/)
+- [Craft Cms Vulnerability Disclosure](https://apis.io/security/craft-cms/craft-cms-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Craft Cms Plans Pricing](https://apis.io/plans/craft-cms/craft-cms-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Craft Cms Rate Limits](https://apis.io/rate-limits/craft-cms/craft-cms-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Craft Cms Finops](https://apis.io/finops/craft-cms/craft-cms-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://craftcms.com)
+- [Documentation](https://craftcms.com/docs/5.x/)
+- [Pricing](https://craftcms.com/pricing)
+- [Blog](https://craftcms.com/blog)
+- [GitHub](https://github.com/craftcms)
+- [Status](https://status.craftcms.com/)
+
+## API Evangelist rating
+
+**Kin Score 25.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 42.6 |
+| Contract governance | 0.0 |
+| Operational transparency | 15.8 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 18.4 |
+
+**Agent readiness 13.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/craft-cms/](https://apis.io/providers/craft-cms/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Craft CMS: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/craft-cms/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
